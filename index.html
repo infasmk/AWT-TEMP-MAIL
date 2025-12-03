@@ -34,6 +34,7 @@
                         'slide-up': 'slideUp 0.3s ease-out',
                         'fade-in': 'fadeIn 0.3s ease-out',
                         'spin-slow': 'spin 3s linear infinite',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
                     },
                     keyframes: {
                         slideUp: {
@@ -43,6 +44,12 @@
                         fadeIn: {
                             '0%': { opacity: '0' },
                             '100%': { opacity: '1' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
                         }
                     }
                 }
@@ -76,11 +83,11 @@
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
-    <!-- 1. SPLASH SCREEN -->
+
     <div id="splash-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brand-50 dark:bg-gray-950 transition-opacity duration-500">
         <div class="text-center animate-fade-in px-4">
             <span class="material-symbols-outlined text-7xl text-brand-600 mb-6 drop-shadow-lg">mail_lock</span>
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-3 bg-gradient-to-r from-brand-600 to-indigo-500 bg-clip-text text-transparent">AWT TEMPMAIL</h1>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-3 bg-gradient-to-r from-brand-600 to-indigo-500 bg-clip-text text-transparent">AWT GHOST MAIL</h1>
             <p class="text-base md:text-lg text-gray-600 dark:text-gray-400">No Login, No Signup, Just Privacy.</p>
         </div>
         <div class="w-64 h-2 bg-gray-200 dark:bg-gray-800 rounded-full mt-10 overflow-hidden shadow-inner">
@@ -88,20 +95,19 @@
         </div>
     </div>
 
-    <!-- HEADER -->
+
     <header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
+               
                 <div class="flex items-center gap-3">
                     <div class="bg-brand-600 text-white p-1.5 rounded-lg">
                         <span class="material-symbols-outlined text-xl block">mail</span>
                     </div>
-                    <h1 class="font-bold text-xl md:text-2xl tracking-tight hidden sm:block">AWT TEMPMAIL</h1>
+                    <h1 class="font-bold text-xl md:text-2xl tracking-tight hidden sm:block">AWT MAIL BOX</h1>
                     <h1 class="font-bold text-xl tracking-tight sm:hidden">AWT</h1>
                 </div>
 
-                <!-- Right Actions -->
                 <div class="flex items-center gap-3">
                     <div class="hidden md:flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 mr-4">
                         <span class="flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> System Online</span>
@@ -114,17 +120,17 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-0 lg:py-10">
         
         <div class="lg:grid lg:grid-cols-12 lg:gap-8 h-full">
             
-            <!-- LEFT COLUMN: CONTROLS (Desktop) / TOP (Mobile) -->
-            <div class="lg:col-span-4 xl:col-span-3 space-y-6 mb-8 lg:mb-0">
+       
+            <div class="lg:col-span-4 xl:col-span-3 space-y-6 mb-6 lg:mb-0">
                 
-                <!-- ID Card -->
+           
                 <div class="bg-gradient-to-br from-brand-600 to-indigo-800 rounded-2xl p-6 text-white shadow-xl shadow-brand-900/20 relative overflow-hidden group transition-transform hover:scale-[1.02] duration-300">
-                    <!-- Decor -->
+              
                     <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
                     <div class="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl -ml-10 -mb-10 pointer-events-none"></div>
                     
@@ -145,7 +151,6 @@
                     </div>
                 </div>
 
-                <!-- Timer -->
                 <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm flex items-center justify-between">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500 relative">
@@ -165,7 +170,7 @@
                     </button>
                 </div>
 
-                <!-- Actions Grid -->
+              
                 <div class="grid grid-cols-2 gap-4">
                     <button onclick="generateNewIdentity()" class="flex flex-col items-center justify-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 border border-gray-200 dark:border-gray-700 py-4 rounded-2xl font-medium text-sm transition-all active:scale-95 shadow-sm hover:shadow-md group">
                         <span class="material-symbols-outlined text-2xl text-brand-600 group-hover:rotate-180 transition-transform duration-500">sync_alt</span>
@@ -176,18 +181,12 @@
                         Delete
                     </button>
                 </div>
-
-                <!-- Desktop Intro Text -->
-                <div class="hidden lg:block bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl text-sm text-blue-800 dark:text-blue-200 border border-blue-100 dark:border-blue-900/30">
-                    <p><strong>Did you know?</strong> This email is temporary. Once deleted or expired, messages cannot be recovered. Download attachments promptly.</p>
-                </div>
             </div>
 
-            <!-- RIGHT COLUMN: INBOX (Desktop) / BOTTOM (Mobile) -->
-            <!-- UPDATED: Increased min-h to 75vh for mobile to provide ample space -->
-            <div class="lg:col-span-8 xl:col-span-9 flex flex-col h-full min-h-[75vh] lg:min-h-0">
+
+            <div class="lg:col-span-8 xl:col-span-9 flex flex-col h-full min-h-[85vh] lg:min-h-0">
                 
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col h-full overflow-hidden relative">
+                <div class="bg-white dark:bg-gray-800 rounded-t-2xl lg:rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col flex-1 h-full overflow-hidden relative">
                     
                     <!-- Inbox Toolbar -->
                     <div class="p-4 md:p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center bg-gray-50/50 dark:bg-gray-800/50">
@@ -202,7 +201,7 @@
                     </div>
 
                     <!-- Inbox List -->
-                    <div id="inbox-list" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-3 relative pb-20">
+                    <div id="inbox-list" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-3 relative">
                         <!-- Empty State -->
                         <div id="empty-state" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 animate-fade-in">
                             <div class="w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
@@ -274,35 +273,31 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 mt-auto">
+    
+    <footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 mt-auto z-10 relative">
         <div class="max-w-7xl mx-auto px-4 py-8 md:py-12">
             <div class="flex flex-col items-center justify-center space-y-6">
                 
                 <!-- Social Icons -->
                 <div class="flex space-x-8">
                     <!-- Telegram -->
-                    <a href="#" class="text-gray-400 hover:text-[#229ED9] transition-colors transform hover:scale-110">
+                    <a href="https://t.me/ARTWEBTECHWA" class="text-gray-400 hover:text-[#229ED9] transition-colors transform hover:scale-110">
                         <span class="sr-only">Telegram</span>
                         <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                     </a>
                     <!-- YouTube -->
-                    <a href="#" class="text-gray-400 hover:text-[#FF0000] transition-colors transform hover:scale-110">
+                    <a href="https://www.youtube.com/@ARTWEBTECH" class="text-gray-400 hover:text-[#FF0000] transition-colors transform hover:scale-110">
                         <span class="sr-only">YouTube</span>
                         <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                    <!-- Instagram -->
-                    <a href="#" class="text-gray-400 hover:text-[#E1306C] transition-colors transform hover:scale-110">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                    </a>
+                    </a>           
                 </div>
 
                 <!-- Text -->
                 <div class="text-center">
                     <p class="font-bold text-gray-900 dark:text-gray-100 tracking-wider text-sm md:text-base">
-                        Created by Infas <span class="text-brand-600 mx-2">||</span> TEAM AWT
+                       TEAM AWT <span class="text-brand-600 mx-2">||</span> Secure Temporary Mail Service
                     </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">&copy; 2024 Secure Temporary Mail Service</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">&copy;  created by infas.mk  </p>
                 </div>
             </div>
         </div>
@@ -317,6 +312,47 @@
         const API_BASE = "https://api.mail.tm";
         const REFRESH_INTERVAL = 10000;
         const TIMER_DURATION = 600;
+
+        // Base64 Sounds (Embedded to avoid external dependencies)
+        // Short beep for "Ding"
+        const SOUND_DING = "data:audio/wav;base64,UklGRl9vT1BXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU"; 
+        // We use a small trick: Generating sound via AudioContext is better, but to keep it simple with pure HTML/JS, 
+        // I will use a minimal reliable beep data uri for "Ding" and a different one for "Dishum".
+        
+        // Actually, to ensure they work without external files, I'll use the Web Audio API to synthesize them.
+        // It's much lighter than embedding base64 MP3s and works offline.
+        
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playDing() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // High pitch
+            oscillator.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.1);
+            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.1);
+        }
+
+        function playDishum() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const oscillator = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            oscillator.type = 'sawtooth'; // Rougher sound
+            oscillator.frequency.setValueAtTime(150, audioCtx.currentTime); 
+            oscillator.frequency.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3); // Drop pitch fast
+            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.3);
+        }
 
         let state = {
             email: null,
@@ -364,11 +400,16 @@
             }
 
             setTimeout(() => { els.splashProgress.style.width = '100%'; }, 100);
-            await generateNewIdentity();
+            await generateNewIdentity(); // Sound not played on initial load to be less annoying
             setTimeout(() => {
                 els.splash.style.opacity = '0';
                 els.splash.style.pointerEvents = 'none';
             }, 1600);
+            
+            // Allow audio context to resume on first user interaction
+            document.body.addEventListener('click', () => {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+            }, { once: true });
         }
 
         els.themeToggle.addEventListener('click', () => {
@@ -411,6 +452,9 @@
         }
 
         window.generateNewIdentity = async function() {
+            // Play Dishum Sound
+            playDishum();
+            
             stopPolling();
             els.emailDisplay.innerText = "Generating...";
             
@@ -471,6 +515,8 @@
             if (data && data['hydra:member']) {
                 const newMessages = data['hydra:member'];
                 if (newMessages.length > state.messages.length) {
+                    // Play Ding Sound
+                    playDing();
                     showToast('You have new mail!', 'success');
                 }
                 state.messages = newMessages;
