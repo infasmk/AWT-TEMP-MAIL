@@ -3,7 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AWT TEMPMAIL - Privacy Simplified</title>
+    
+    <!-- PRIMARY SEO -->
+    <title>AWT Temp Mail - Free Disposable Email & Fake Mail Generator</title>
+    <meta name="description" content="Get a free temporary email address instantly. Protect your privacy with our anonymous disposable email generator. No login required. Secure 10 minute mail service.">
+    <meta name="keywords" content="temp mail, disposable email, fake email generator, 10 minute mail, anonymous email, throwaway email, spam protection, burner mail">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Team AWT">
+    
+    <!-- CANONICAL URL (Update this to your real domain) -->
+    <link rel="canonical" href="https://your-domain.com/" />
+
+    <!-- OPEN GRAPH / FACEBOOK / WHATSAPP -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:title" content="AWT Temp Mail - Free Instant Disposable Email">
+    <meta property="og:description" content="Stop spam. Get a secure temporary email address instantly. No registration required.">
+    <meta property="og:image" content="https://your-domain.com/assets/og-image.jpg">
+
+    <!-- TWITTER -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-domain.com/">
+    <meta property="twitter:title" content="AWT Temp Mail - Free Instant Disposable Email">
+    <meta property="twitter:description" content="Stop spam. Get a secure temporary email address instantly. No registration required.">
+    <meta property="twitter:image" content="https://your-domain.com/assets/og-image.jpg">
+
+    <!-- STRUCTURED DATA (SCHEMA.ORG) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AWT Temp Mail",
+      "url": "https://your-domain.com",
+      "description": "Free disposable email generator to protect users from spam and phishing.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": "Instant email generation, Auto-refresh inbox, Secure deletion, Mobile friendly"
+    }
+    </script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,15 +146,15 @@
                     <div class="bg-brand-600 text-white p-1.5 rounded-lg">
                         <span class="material-symbols-outlined text-xl block">mail</span>
                     </div>
-                    <h1 class="font-bold text-xl md:text-2xl tracking-tight hidden sm:block">AWT MAIL BOX</h1>
-                    <h1 class="font-bold text-xl tracking-tight sm:hidden">AWT MAIL BOX</h1>
+                    <a href="/" class="font-bold text-xl md:text-2xl tracking-tight hidden sm:block hover:text-brand-600 transition-colors">AWT MAIL BOX</a>
+                    <a href="/" class="font-bold text-xl tracking-tight sm:hidden hover:text-brand-600 transition-colors">AWT MAIL BOX</a>
                 </div>
 
                 <div class="flex items-center gap-3">
                     <div class="hidden md:flex items-center gap-4 text-sm font-medium text-gray-500 dark:text-gray-400 mr-4">
                         <span class="flex items-center gap-1"><span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> System Online</span>
                     </div>
-                    <button id="theme-toggle" class="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-transparent dark:border-gray-700">
+                    <button id="theme-toggle" class="p-2.5 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all border border-transparent dark:border-gray-700" aria-label="Toggle Dark Mode">
                         <span class="material-symbols-outlined text-xl">light_mode</span>
                     </button>
                 </div>
@@ -123,12 +165,13 @@
 
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-0 lg:py-10">
         
+        <!-- TOOL INTERFACE -->
         <div class="lg:grid lg:grid-cols-12 lg:gap-8 h-full">
             
-       
+            <!-- SIDEBAR -->
             <div class="lg:col-span-4 xl:col-span-3 space-y-6 mb-6 lg:mb-0">
                 
-           
+                <!-- Email Card -->
                 <div class="bg-gradient-to-br from-brand-600 to-indigo-800 rounded-2xl p-6 text-white shadow-xl shadow-brand-900/20 relative overflow-hidden group transition-transform hover:scale-[1.02] duration-300">
               
                     <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
@@ -136,21 +179,22 @@
                     
                     <div class="relative z-10">
                         <div class="flex justify-between items-start mb-4">
-                            <p class="text-indigo-100 text-xs font-bold uppercase tracking-widest border border-white/20 px-2 py-0.5 rounded">Temporary ID</p>
+                            <h2 class="text-indigo-100 text-xs font-bold uppercase tracking-widest border border-white/20 px-2 py-0.5 rounded">Temporary ID</h2>
                             <span class="material-symbols-outlined text-white/50">fingerprint</span>
                         </div>
                         
                         <div class="mb-6">
-                            <h2 id="email-address" class="text-lg md:text-xl font-bold break-all leading-tight font-mono">Generating...</h2>
+                            <p id="email-address" class="text-lg md:text-xl font-bold break-all leading-tight font-mono select-all">Generating...</p>
                         </div>
 
-                        <button onclick="copyEmail()" class="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 py-2.5 rounded-xl flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-lg">
+                        <button onclick="copyEmail()" aria-label="Copy Email Address" class="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 py-2.5 rounded-xl flex items-center justify-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-lg">
                             <span class="material-symbols-outlined text-lg">content_copy</span>
                             Copy Address
                         </button>
                     </div>
                 </div>
 
+                <!-- Timer -->
                 <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm flex items-center justify-between">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500 relative">
@@ -165,12 +209,12 @@
                             <p id="timer-display" class="font-bold text-2xl tabular-nums leading-none">10:00</p>
                         </div>
                     </div>
-                    <button onclick="extendTimer()" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 text-sm font-bold bg-brand-50 dark:bg-brand-900/30 px-3 py-1.5 rounded-lg transition-colors">
+                    <button onclick="extendTimer()" aria-label="Extend Timer" class="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 text-sm font-bold bg-brand-50 dark:bg-brand-900/30 px-3 py-1.5 rounded-lg transition-colors">
                         +10 Min
                     </button>
                 </div>
 
-              
+                <!-- Controls -->
                 <div class="grid grid-cols-2 gap-4">
                     <button onclick="generateNewIdentity()" class="flex flex-col items-center justify-center gap-2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 border border-gray-200 dark:border-gray-700 py-4 rounded-2xl font-medium text-sm transition-all active:scale-95 shadow-sm hover:shadow-md group">
                         <span class="material-symbols-outlined text-2xl text-brand-600 group-hover:rotate-180 transition-transform duration-500">sync_alt</span>
@@ -184,6 +228,7 @@
             </div>
 
 
+            <!-- MAIN INBOX AREA -->
             <div class="lg:col-span-8 xl:col-span-9 flex flex-col h-full min-h-[85vh] lg:min-h-0">
                 
                 <div class="bg-white dark:bg-gray-800 rounded-t-2xl lg:rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col flex-1 h-full overflow-hidden relative">
@@ -224,7 +269,7 @@
                                     <span class="material-symbols-outlined">arrow_back</span>
                                 </button>
                                 <div class="flex-1 min-w-0">
-                                    <h2 class="font-bold text-lg md:text-xl truncate">Read Message</h2>
+                                    <h3 class="font-bold text-lg md:text-xl truncate">Read Message</h3>
                                 </div>
                                 <div class="flex gap-2">
                                     <button onclick="closeMessage()" class="hidden lg:flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 text-gray-500">
@@ -236,7 +281,7 @@
                             <!-- Content -->
                             <div class="flex-1 overflow-y-auto p-5 md:p-8 bg-gray-50/50 dark:bg-black/20">
                                 <div class="max-w-3xl mx-auto">
-                                    <h1 id="msg-subject" class="text-xl md:text-2xl font-bold mb-6 leading-tight text-gray-900 dark:text-gray-100">Subject</h1>
+                                    <h4 id="msg-subject" class="text-xl md:text-2xl font-bold mb-6 leading-tight text-gray-900 dark:text-gray-100">Subject</h4>
                                     
                                     <div class="flex items-center gap-4 mb-8 bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
                                         <div id="msg-avatar" class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-500 to-pink-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
@@ -270,6 +315,33 @@
                 </div>
             </div>
         </div>
+
+        <!-- SEO CONTENT SECTION (Crucial for Ranking) -->
+        <article class="prose dark:prose-invert max-w-none mt-16 mb-12 bg-white dark:bg-gray-900 p-8 rounded-3xl border border-gray-200 dark:border-gray-800">
+            <h2 class="text-3xl font-bold mb-6 text-brand-600 dark:text-brand-400">Why Use AWT Temp Mail?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Protect Your Privacy</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A <strong>disposable email address</strong> keeps your real identity safe. When you sign up for unknown websites, apps, or forums, use our fake email generator to avoid giving out your personal information.
+                    </p>
+                    <h3 class="text-xl font-bold mb-3">Stop Spam Instantly</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Primary inboxes often get flooded with newsletters and promotional junk. By using <strong>AWT 10 minute mail</strong>, you ensure that spam never reaches your actual email account. Once you are done, the temporary email is deleted automatically.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3">How does Temp Mail work?</h3>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
+                        <li><strong>No Registration:</strong> Just visit the site and get an email instantly.</li>
+                        <li><strong>Instant Reception:</strong> Emails arrive in seconds.</li>
+                        <li><strong>Secure Deletion:</strong> Your data is wiped after the session ends.</li>
+                        <li><strong>Anonymous:</strong> We do not track your IP or personal data.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
     </main>
 
     <!-- FOOTER -->
@@ -281,13 +353,11 @@
                 <!-- Social Icons -->
                 <div class="flex space-x-8">
                     <!-- Telegram -->
-                    <a href="https://t.me/ARTWEBTECHWA" class="text-gray-400 hover:text-[#229ED9] transition-colors transform hover:scale-110">
-                        <span class="sr-only">Telegram</span>
+                    <a href="https://t.me/ARTWEBTECHWA" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#229ED9] transition-colors transform hover:scale-110" aria-label="Join us on Telegram">
                         <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                     </a>
                     <!-- YouTube -->
-                    <a href="https://www.youtube.com/@ARTWEBTECH" class="text-gray-400 hover:text-[#FF0000] transition-colors transform hover:scale-110">
-                        <span class="sr-only">YouTube</span>
+                    <a href="https://www.youtube.com/@ARTWEBTECH" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#FF0000] transition-colors transform hover:scale-110" aria-label="Subscribe on YouTube">
                         <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>           
                 </div>
@@ -312,16 +382,8 @@
         const API_BASE = "https://api.mail.tm";
         const REFRESH_INTERVAL = 10000;
         const TIMER_DURATION = 600;
+        const ORIGINAL_TITLE = document.title; // For SEO title swapping
 
-        // Base64 Sounds (Embedded to avoid external dependencies)
-        // Short beep for "Ding"
-        const SOUND_DING = "data:audio/wav;base64,UklGRl9vT1BXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU"; 
-        // We use a small trick: Generating sound via AudioContext is better, but to keep it simple with pure HTML/JS, 
-        // I will use a minimal reliable beep data uri for "Ding" and a different one for "Dishum".
-        
-        // Actually, to ensure they work without external files, I'll use the Web Audio API to synthesize them.
-        // It's much lighter than embedding base64 MP3s and works offline.
-        
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
         function playDing() {
@@ -400,13 +462,12 @@
             }
 
             setTimeout(() => { els.splashProgress.style.width = '100%'; }, 100);
-            await generateNewIdentity(); // Sound not played on initial load to be less annoying
+            await generateNewIdentity(); 
             setTimeout(() => {
                 els.splash.style.opacity = '0';
                 els.splash.style.pointerEvents = 'none';
             }, 1600);
             
-            // Allow audio context to resume on first user interaction
             document.body.addEventListener('click', () => {
                 if (audioCtx.state === 'suspended') audioCtx.resume();
             }, { once: true });
@@ -452,11 +513,10 @@
         }
 
         window.generateNewIdentity = async function() {
-            // Play Dishum Sound
             playDishum();
-            
             stopPolling();
             els.emailDisplay.innerText = "Generating...";
+            document.title = ORIGINAL_TITLE; // Reset title on new ID
             
             const domains = await apiCall('/domains');
             if (!domains || !domains['hydra:member'].length) {
@@ -515,9 +575,10 @@
             if (data && data['hydra:member']) {
                 const newMessages = data['hydra:member'];
                 if (newMessages.length > state.messages.length) {
-                    // Play Ding Sound
                     playDing();
                     showToast('You have new mail!', 'success');
+                    // SEO: Update Title to notify user
+                    document.title = `(${newMessages.length}) New Mail - AWT Temp Mail`;
                 }
                 state.messages = newMessages;
                 els.msgCount.innerText = state.messages.length;
@@ -585,10 +646,12 @@
                 `;
                 els.msgIframe.srcdoc = iframeContent;
 
-                // Open Modal/Slide
                 els.viewMessage.classList.remove('translate-x-full', 'lg:opacity-0', 'lg:pointer-events-none');
                 els.viewMessage.classList.add('lg:opacity-100');
                 if(els.msgModalInner) els.msgModalInner.classList.remove('lg:scale-95');
+                
+                // SEO: Update title to reading mode
+                document.title = `${msg.subject} - AWT Temp Mail`;
             }
         }
 
@@ -597,6 +660,9 @@
             els.viewMessage.classList.remove('lg:opacity-100');
             if(els.msgModalInner) els.msgModalInner.classList.add('lg:scale-95');
             setTimeout(() => { els.msgIframe.srcdoc = ''; }, 300);
+            
+            // SEO: Reset title
+            document.title = state.messages.length > 0 ? `(${state.messages.length}) AWT Temp Mail` : ORIGINAL_TITLE;
         }
 
         // --- 6. TIMER LOGIC ---
@@ -638,7 +704,7 @@
             state.timerIntervalId = setInterval(tickTimer, 1000);
         }
 
-        // --- 7. UTILITIES (Copied from previous fix) ---
+        // --- 7. UTILITIES ---
         window.copyEmail = function() {
             if (!state.email) return;
             if (navigator.clipboard && navigator.clipboard.writeText) {
